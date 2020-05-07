@@ -77,19 +77,19 @@ while True:
     
     elif cmd == "s":
         if player.current_room.s_to is not None:
-            player.current_room = player.current_room.n_to
+            player.current_room = player.current_room.s_to
         else:
             print("You can't move there")
 
     elif cmd == "e":
         if player.current_room.e_to is not None:
-            player.current_room = player.current_room.n_to
+            player.current_room = player.current_room.e_to
         else:
             print("You can't move there")
 
     elif cmd == "w":
         if player.current_room.w_to is not None:
-            player.current_room = player.current_room.n_to
+            player.current_room = player.current_room.w_to
         else:
             print("You can't move there")
 
