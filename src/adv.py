@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -33,11 +34,15 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+
+
 #
 # Main
 #
 
 # Make a new player object that is currently in the 'outside' room.
+player = Player(input("Enter your name: "), room['outside'])
+print(f"Hi, {player.name}")
 
 # Write a loop that:
 #
@@ -49,3 +54,45 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+
+# Read
+# Eval
+# Print
+# Loop
+
+while True:
+    print(player.current_room.name)
+    print("")
+    print(player.current_room.description)
+    cmd = input("=>")
+    if cmd == "q":
+        print("Bye")
+        exit(0)
+    elif cmd == "n":
+        if player.current_room.n_to is not None:
+            player.current_room = player.current_room.n_to
+        else:
+            print("You can't move there")
+    
+    elif cmd == "s":
+        if player.current_room.s_to is not None:
+            player.current_room = player.current_room.n_to
+        else:
+            print("You can't move there")
+
+    elif cmd == "e":
+        if player.current_room.e_to is not None:
+            player.current_room = player.current_room.n_to
+        else:
+            print("You can't move there")
+
+    elif cmd == "w":
+        if player.current_room.w_to is not None:
+            player.current_room = player.current_room.n_to
+        else:
+            print("You can't move there")
+
+    else:
+        print("I don't understand")
+
